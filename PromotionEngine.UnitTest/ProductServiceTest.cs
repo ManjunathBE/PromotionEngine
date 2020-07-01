@@ -42,6 +42,30 @@ namespace PromotionEngine.UnitTest
             sut.Should().Equals(100);
         }
 
+        [Test]
+        public void Test_Build_Scenerio_A()
+        {
+            var productsList = Build_Scenerio_A();
+            var sut = _productService.GetTotalPrice(productsList);
+            sut.Should().Equals(100);
+        }
+
+        [Test]
+        public void Test_Build_Scenerio_B()
+        {
+            var productsList = Build_Scenerio_B();
+            var sut = _productService.GetTotalPrice(productsList);
+            sut.Should().Equals(370);
+        }
+
+        [Test]
+        public void Test_Build_Scenerio_C()
+        {
+            var productsList = BuildProducts();
+            var sut = _productService.GetTotalPrice(productsList);
+            sut.Should().Equals(280);
+        }
+
         private static readonly object[] ListOfProducts =
         {
             new object[] { new List<Product>() { new Product("A"), new Product("B"), new Product("C") }},
@@ -51,6 +75,26 @@ namespace PromotionEngine.UnitTest
         private List<Product> BuildProducts()
         {
             return new List<Product>() { new Product("A"), new Product("B"), new Product("C") };
+        }
+
+        private List<Product> Build_Scenerio_A()
+        {
+            return new List<Product>() { new Product("A"), new Product("B"), new Product("C") };
+        }
+
+        private List<Product> Build_Scenerio_B()
+        {
+            return new List<Product>() { new Product("A"), new Product("A"), new Product("A"), new Product("A"), new Product("A"), 
+                                         new Product("B"), new Product("B"),new Product("B"),new Product("B"),new Product("B"),
+                                         new Product("C") };
+        }
+
+        private List<Product> Build_Scenerio_C()
+        {
+            return new List<Product>() { new Product("A"), new Product("A"), new Product("A"),
+                                         new Product("B"), new Product("B"),new Product("B"),new Product("B"),new Product("B"),
+                                         new Product("C"), 
+                                         new Product("D") };
         }
     }
 }
