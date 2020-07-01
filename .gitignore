@@ -1,0 +1,9 @@
+.vs/
+build/
+x64/
+x86/
+bld/
+bin/
+Bin/
+obj/
+Obj/
