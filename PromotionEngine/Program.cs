@@ -13,7 +13,7 @@ namespace PromotionEngine
         {
             List<Product> products = new List<Product>();
 
-            Console.WriteLine("Key in the Order");
+            Console.WriteLine("Key in the Number of Orders");
             int a = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < a; i++)
             {
